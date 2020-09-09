@@ -3,10 +3,10 @@ package com.h2;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
-public class SavingCalculator {
+public class SavingsCalculator {
     private float[] credits, debits;
 
-    public SavingCalculator(float[] credits, float[] debits) {
+    public SavingsCalculator(float[] credits, float[] debits) {
         this.credits = credits;
         this.debits = debits;
     }
@@ -27,7 +27,7 @@ public class SavingCalculator {
         return sum;
     }
 
-    private static int remainingDayInMonth(LocalDate date) {
+    private static int remainingDaysInMonth(LocalDate date) {
         YearMonth yearMonth = YearMonth.of(date.getYear(), date.getMonth());
         int totalDaysInMonth = yearMonth.lengthOfMonth();
         int remainingDays = totalDaysInMonth - date.getDayOfMonth();
@@ -50,8 +50,8 @@ public class SavingCalculator {
             debits[i] = Float.parseFloat(debitsAsString[i]);
         }
 
-        SavingCalculator calculator = new SavingCalculator(credits, debits);
+        SavingsCalculator calculator = new SavingsCalculator(credits, debits);
         float netSavings = calculator.calculate();
-        System.out.println("Net Savings = " + netSavings + ", remaining days in month = " + remainingDayInMonth(LocalDate.now()));
+        System.out.println("Net Savings = " + netSavings + ", remaining days in month = " + remainingDaysInMonth(LocalDate.now()));
     }
 }
